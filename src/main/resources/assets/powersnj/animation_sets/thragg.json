@@ -1,0 +1,40 @@
+{
+  "clips": "powersnj:animations/suits/thragg.animation.json",
+  "fade": 0.2,
+  "states": {
+    "idle": "animation.thragg.parado",
+    "walk": "animation.thragg.andar",
+    "run": "animation.thragg.correr",
+    "crouch": "animation.thragg.agachar",
+    "guard": "animation.thragg.defender",
+    "jump": "animation.thragg.saltar",
+    "takeoff": "animation.thragg.decolar",
+    "hover": "animation.thragg.flutuar",
+    "fly": "animation.thragg.voar",
+    "fast_flight": "animation.thragg.voo_rapido",
+    "land": "animation.thragg.pousar"
+  },
+  "melee": {
+    "chain": [
+      "animation.thragg.soco_direito",
+      "animation.thragg.soco_esquerdo"
+    ],
+    "after_sprint": "animation.thragg.chute",
+    "chain_window": 1.0
+  },
+  "events": {
+    "heavy_hit": "animation.thragg.recuar",
+    "level_up": "animation.thragg.vitoria",
+    "kill": "animation.thragg.vitoria"
+  },
+  "lower_body": [
+    "root",
+    "right_leg",
+    "left_leg",
+    "right_shin",
+    "left_shin",
+    "tabard_right",
+    "tabard_left"
+  ],
+  "combat_window": 5.0
+}

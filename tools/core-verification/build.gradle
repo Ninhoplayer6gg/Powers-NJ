@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def root = file('../..')
+
+sourceSets {
+    main {
+        java {
+            srcDirs = [new File(root, 'src/main/java')]
+            include 'com/powersnj/core/**'
+        }
+        resources {
+            srcDirs = []
+        }
+    }
+    test {
+        java {
+            srcDirs = [new File(root, 'src/test/java')]
+            include 'com/powersnj/core/**'
+        }
+    }
+}
+
+dependencies {
+    // Versions match what Minecraft 1.20.1 ships at runtime.
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'io.netty:netty-buffer:4.1.82.Final'
+
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 17
+    options.compilerArgs += ['-Xlint:all', '-Xlint:-serial']
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'powersnj.sourceRoot', new File(root, 'src/main/java').absolutePath
+    systemProperty 'powersnj.resourceRoot', new File(root, 'src/main/resources').absolutePath
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        exceptionFormat 'full'
+    }
+}

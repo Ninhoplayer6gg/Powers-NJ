@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": {
+    "item": "powersnj:deepslate_speed_crystal_ore"
+  },
+  "result": "powersnj:speed_crystal",
+  "experience": 0.7,
+  "cookingtime": 100
+}

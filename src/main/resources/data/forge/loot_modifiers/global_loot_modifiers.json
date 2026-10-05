@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "entries": [
+    "powersnj:blueprint_ancient_city",
+    "powersnj:blueprint_end_city",
+    "powersnj:blueprint_stronghold",
+    "powersnj:blueprint_bastion",
+    "powersnj:blueprint_woodland_mansion",
+    "powersnj:blueprint_desert_pyramid",
+    "powersnj:blueprint_jungle_temple",
+    "powersnj:blueprint_dungeon",
+    "powersnj:suit_materials_in_chests",
+    "powersnj:organic_samples_from_mobs",
+    "powersnj:organic_samples_in_chests",
+    "powersnj:negative_energy_from_end_mobs",
+    "powersnj:negative_energy_in_chests"
+  ]
+}

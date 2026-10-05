@@ -1,0 +1,27 @@
+{
+  "feature": "powersnj:speed_crystal_ore",
+  "placement": [
+    {
+      "type": "powersnj:configured_count",
+      "ore": "speed_crystal"
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "absolute": -32
+        },
+        "max_inclusive": {
+          "absolute": 48
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

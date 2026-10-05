@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BSB",
+    "SOS",
+    "BSB"
+  ],
+  "key": {
+    "B": {
+      "item": "powersnj:biomass"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "O": {
+      "item": "powersnj:organic_compound"
+    }
+  },
+  "result": {
+    "item": "powersnj:symbiotic_fiber",
+    "count": 4
+  }
+}

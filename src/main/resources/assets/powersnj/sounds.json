@@ -1,0 +1,155 @@
+{
+  "suit.equip": {
+    "subtitle": "subtitles.powersnj.suit.equip",
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_netherite",
+        "type": "event"
+      }
+    ]
+  },
+  "suit.fabricate": {
+    "subtitle": "subtitles.powersnj.suit.fabricate",
+    "sounds": [
+      {
+        "name": "minecraft:block.smithing_table.use",
+        "type": "event"
+      }
+    ]
+  },
+  "progression.level_up": {
+    "subtitle": "subtitles.powersnj.progression.level_up",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.levelup",
+        "type": "event"
+      }
+    ]
+  },
+  "progression.skill_unlock": {
+    "subtitle": "subtitles.powersnj.progression.skill_unlock",
+    "sounds": [
+      {
+        "name": "minecraft:block.enchantment_table.use",
+        "type": "event"
+      }
+    ]
+  },
+  "thragg.ground_slam": {
+    "subtitle": "subtitles.powersnj.thragg.ground_slam",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.explode",
+        "type": "event"
+      }
+    ]
+  },
+  "thragg.shockwave": {
+    "subtitle": "subtitles.powersnj.thragg.shockwave",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_boom",
+        "type": "event"
+      }
+    ]
+  },
+  "thragg.heavy_punch": {
+    "subtitle": "subtitles.powersnj.thragg.heavy_punch",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.strong",
+        "type": "event"
+      }
+    ]
+  },
+  "thragg.flight_boost": {
+    "subtitle": "subtitles.powersnj.thragg.flight_boost",
+    "sounds": [
+      {
+        "name": "minecraft:entity.firework_rocket.launch",
+        "type": "event"
+      }
+    ]
+  },
+  "venom.tendril_shoot": {
+    "subtitle": "subtitles.powersnj.venom.tendril_shoot",
+    "sounds": [
+      {
+        "name": "minecraft:entity.fishing_bobber.throw",
+        "type": "event"
+      }
+    ]
+  },
+  "venom.tendril_retract": {
+    "subtitle": "subtitles.powersnj.venom.tendril_retract",
+    "sounds": [
+      {
+        "name": "minecraft:entity.fishing_bobber.retrieve",
+        "type": "event"
+      }
+    ]
+  },
+  "venom.symbiote_shield": {
+    "subtitle": "subtitles.powersnj.venom.symbiote_shield",
+    "sounds": [
+      {
+        "name": "minecraft:item.shield.block",
+        "type": "event"
+      }
+    ]
+  },
+  "venom.symbiote_hiss": {
+    "subtitle": "subtitles.powersnj.venom.symbiote_hiss",
+    "sounds": [
+      {
+        "name": "minecraft:entity.cat.hiss",
+        "type": "event"
+      }
+    ]
+  },
+  "reverse_flash.speed_start": {
+    "subtitle": "subtitles.powersnj.reverse_flash.speed_start",
+    "sounds": [
+      {
+        "name": "minecraft:entity.lightning_bolt.thunder",
+        "type": "event"
+      }
+    ]
+  },
+  "reverse_flash.speed_stop": {
+    "subtitle": "subtitles.powersnj.reverse_flash.speed_stop",
+    "sounds": [
+      {
+        "name": "minecraft:block.fire.extinguish",
+        "type": "event"
+      }
+    ]
+  },
+  "reverse_flash.dash": {
+    "subtitle": "subtitles.powersnj.reverse_flash.dash",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.flap",
+        "type": "event"
+      }
+    ]
+  },
+  "reverse_flash.phase": {
+    "subtitle": "subtitles.powersnj.reverse_flash.phase",
+    "sounds": [
+      {
+        "name": "minecraft:entity.enderman.teleport",
+        "type": "event"
+      }
+    ]
+  },
+  "reverse_flash.vortex": {
+    "subtitle": "subtitles.powersnj.reverse_flash.vortex",
+    "sounds": [
+      {
+        "name": "minecraft:item.elytra.flying",
+        "type": "event"
+      }
+    ]
+  }
+}

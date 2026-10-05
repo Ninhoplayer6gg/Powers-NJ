@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "powersnj:thragg_helmet",
+    "powersnj:thragg_chestplate",
+    "powersnj:thragg_leggings",
+    "powersnj:thragg_boots",
+    "powersnj:venom_helmet",
+    "powersnj:venom_chestplate",
+    "powersnj:venom_leggings",
+    "powersnj:venom_boots",
+    "powersnj:reverse_flash_helmet",
+    "powersnj:reverse_flash_chestplate",
+    "powersnj:reverse_flash_leggings",
+    "powersnj:reverse_flash_boots"
+  ]
+}

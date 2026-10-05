@@ -1,0 +1,30 @@
+{
+  "type": "powersnj:suit_fabrication",
+  "blueprint": "powersnj:speedster_blueprint",
+  "power_core": "powersnj:power_core",
+  "materials": [
+    {
+      "item": "powersnj:conductive_fabric",
+      "count": 8
+    },
+    {
+      "item": "powersnj:advanced_conductor",
+      "count": 4
+    },
+    {
+      "item": "powersnj:speed_crystal",
+      "count": 6
+    },
+    {
+      "item": "powersnj:negative_energy_fragment",
+      "count": 4
+    },
+    {
+      "item": "powersnj:advanced_circuit",
+      "count": 2
+    }
+  ],
+  "suit": "powersnj:reverse_flash",
+  "processing_time": 300,
+  "consume_blueprint": false
+}

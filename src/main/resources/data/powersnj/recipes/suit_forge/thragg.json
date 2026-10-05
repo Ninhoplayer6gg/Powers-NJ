@@ -1,0 +1,26 @@
+{
+  "type": "powersnj:suit_fabrication",
+  "blueprint": "powersnj:viltrumite_blueprint",
+  "power_core": "powersnj:power_core",
+  "materials": [
+    {
+      "item": "powersnj:viltrumite_alloy",
+      "count": 8
+    },
+    {
+      "item": "powersnj:reinforced_viltrumite_fabric",
+      "count": 6
+    },
+    {
+      "item": "powersnj:advanced_circuit",
+      "count": 2
+    },
+    {
+      "item": "powersnj:energy_conductor",
+      "count": 2
+    }
+  ],
+  "suit": "powersnj:thragg",
+  "processing_time": 300,
+  "consume_blueprint": false
+}

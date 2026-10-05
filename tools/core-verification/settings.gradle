@@ -1,0 +1,4 @@
+// Stand-alone build that compiles and unit-tests ONLY the engine-agnostic core (com.powersnj.core.*)
+// from the main source tree. It needs nothing but Maven Central, so it runs in restricted CI/sandboxes
+// where the Forge/Mojang mavens are unreachable. The real mod build is the root ./gradlew build.
+rootProject.name = 'powersnj-core-verification'

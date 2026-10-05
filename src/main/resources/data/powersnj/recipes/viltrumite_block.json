@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "VVV",
+    "VVV",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "powersnj:viltrumite_ingot"
+    }
+  },
+  "result": {
+    "item": "powersnj:viltrumite_block",
+    "count": 1
+  }
+}
