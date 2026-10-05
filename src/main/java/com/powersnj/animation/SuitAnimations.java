@@ -1,53 +1,39 @@
 package com.powersnj.animation;
 
 import com.powersnj.PowersNJ;
-import com.powersnj.client.ClientPowerState;
-import com.powersnj.core.net.MovementSnapshot;
-import com.powersnj.movement.MovementControllers;
-import com.powersnj.suit.SuitArmorItem;
+import com.powersnj.network.PowersNetwork;
+import com.powersnj.network.SuitAnimationPacket;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import software.bernie.geckolib.constant.DataTickets;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.RawAnimation;
+import net.minecraft.server.level.ServerPlayer;
 
 /**
- * Animation names and controllers shared by every suit. Animation files live at
- * {@code assets/powersnj/animations/suits/<suit>.animation.json} and must define the animations
- * named here (see ASSET_REQUIREMENTS.md). When a suit has no animation file yet the bundled empty
- * {@link #EMPTY_ANIMATIONS} is used, so GeckoLib never fails.
+ * Server-side entry point of the suit animations (safe on both sides).
  * <p>
- * The controller picks the animation from the server-synced movement state of the entity wearing
- * the suit: flying &rarr; {@link #FLY}, speedster running &rarr; {@link #RUN}, otherwise {@link #IDLE}.
+ * Clips live in {@code assets/<ns>/animations/suits/<suit>.animation.json} (Bedrock format, made with
+ * tools/suit-assets), the set that maps them to states and events in
+ * {@code assets/<ns>/animation_sets/<suit>.json}. Clients pick the set of the suit an entity wears;
+ * the server only announces one-shot clips: ability activations (the {@code animation} property of
+ * every Powers NJ ability) and events ({@code #level_up}, {@code #kill}, {@code #heavy_hit}).
  */
 public final class SuitAnimations {
 
+    /** Valid GeckoLib animation file without animations, for models that have none yet. */
     public static final ResourceLocation EMPTY_ANIMATIONS = PowersNJ.id("animations/empty.animation.json");
 
-    public static final String IDLE = "animation.suit.idle";
-    public static final String FLY = "animation.suit.fly";
-    public static final String RUN = "animation.suit.run";
-
-    public static final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop(IDLE);
-    public static final RawAnimation FLY_ANIM = RawAnimation.begin().thenLoop(FLY);
-    public static final RawAnimation RUN_ANIM = RawAnimation.begin().thenLoop(RUN);
+    public static final String EVENT_LEVEL_UP = "#level_up";
+    public static final String EVENT_KILL = "#kill";
+    public static final String EVENT_HEAVY_HIT = "#heavy_hit";
 
     private SuitAnimations() {
     }
 
-    public static AnimationController<SuitArmorItem> suitController(SuitArmorItem item) {
-        return new AnimationController<>(item, "suit", 5, state -> {
-            Entity wearer = state.getData(DataTickets.ENTITY);
-            MovementSnapshot movement = wearer == null ? null : ClientPowerState.movement(wearer.getId()).orElse(null);
-            if (movement != null && movement.has(MovementSnapshot.FLAG_ACTIVE)) {
-                if (MovementControllers.FLIGHT.equals(movement.controller())) {
-                    return state.setAndContinue(FLY_ANIM);
-                }
-                if (MovementControllers.SPEEDSTER.equals(movement.controller()) && movement.speed() > 2F) {
-                    return state.setAndContinue(RUN_ANIM);
-                }
-            }
-            return state.setAndContinue(IDLE_ANIM);
-        });
+    /**
+     * Plays a clip (name) or an event ({@code #event}) on the player for everyone tracking it.
+     */
+    public static void play(ServerPlayer player, String key) {
+        if (key == null || key.isEmpty() || key.length() > SuitAnimationPacket.MAX_KEY_LENGTH) {
+            return;
+        }
+        PowersNetwork.sendToTrackingAndSelf(player, new SuitAnimationPacket(player.getId(), key));
     }
 }

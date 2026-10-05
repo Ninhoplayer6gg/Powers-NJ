@@ -1,6 +1,7 @@
 package com.powersnj.client;
 
 import com.powersnj.PowersNJ;
+import com.powersnj.animation.SuitAnimationClient;
 import com.powersnj.client.screen.SkillTreeScreen;
 import com.powersnj.core.net.MovementSnapshot;
 import com.powersnj.core.suit.SuitDefinitions;
@@ -45,6 +46,7 @@ public final class ClientEvents {
             PowersHudOverlay.toggleVisible();
         }
         SpeedsterVisuals.tick(minecraft);
+        SuitAnimationClient.tick(minecraft);
     }
 
     /**
@@ -68,6 +70,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void loggingOut(ClientPlayerNetworkEvent.LoggingOut event) {
         ClientPowerState.reset();
+        SuitAnimationClient.clear();
         SuitDefinitions.CLIENT.replaceAll(Map.of(), Map.of());
     }
 }

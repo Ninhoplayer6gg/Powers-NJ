@@ -15,15 +15,21 @@ Contrato entre o código e a produção de assets. Cada arquivo abaixo é procur
 
 ## 1. Trajes (por personagem)
 
+Modelos, texturas e animações de trajes saem do pipeline em `tools/suit-assets` (veja o README de lá): o artista trabalha
+num `.bbmodel` no **rig de traje** (`root` → `head`, `body`, braços, pernas como no Minecraft, ossos extras como capa e
+antebraços) e o exportador gera a geometria de armadura GeckoLib, a textura e os clipes. Com o traje completo vestido, o
+poder esconde a skin do jogador (`palladium:hide_body_part`) e as animações do personagem tocam para todos os jogadores.
+
 ### Thragg (`thragg`)
 
 | Resource location | Resolução | Uso | Carregado por | Status |
 |---|---|---|---|---|
-| `powersnj:textures/suits/thragg/thragg_layer_1.png` | 64x32 (layout de armadura vanilla) | Capacete, peitoral/braços e botas no modelo vanilla | `SuitArmorItem#getArmorTexture` → `SuitAssets.armorTexture` | placeholder |
-| `powersnj:textures/suits/thragg/thragg_layer_2.png` | 64x32 | Calças | `SuitArmorItem#getArmorTexture` | placeholder |
-| `powersnj:geo/suits/thragg.geo.json` | Blockbench (GeckoLib) | Modelo animado do traje completo. Ossos obrigatórios: `armorHead`, `armorBody`, `armorRightArm`, `armorLeftArm`, `armorRightLeg`, `armorLeftLeg`, `armorRightBoot`, `armorLeftBoot` | `SuitGeoModel` / `GeckoSuitRenderer` (ativado por `SuitArmorClientExtensions`) | **faltando** (usa vanilla) |
-| `powersnj:textures/suits/thragg/thragg_geo.png` | conforme UV do modelo (recomendado 128x128 ou 256x256) | Textura do modelo GeckoLib | `SuitGeoModel#getTextureResource` | **faltando** |
-| `powersnj:animations/suits/thragg.animation.json` | GeckoLib | Animações `animation.suit.idle` (loop), `animation.suit.fly`, `animation.suit.run` | `SuitGeoModel#getAnimationResource`, `SuitAnimations` | **faltando** (usa `animations/empty.animation.json`) |
+| `powersnj:textures/suits/thragg/thragg_layer_1.png` | 64x32 (layout de armadura vanilla) | Fallback: só usado se o modelo GeckoLib for removido (ex.: resource pack) | `SuitArmorItem#getArmorTexture` → `SuitAssets.armorTexture` | placeholder |
+| `powersnj:textures/suits/thragg/thragg_layer_2.png` | 64x32 | Fallback das calças | `SuitArmorItem#getArmorTexture` | placeholder |
+| `powersnj:geo/suits/thragg.geo.json` | gerado de `art/suits/thragg/thragg.bbmodel` | Modelo do Thragg (35 cubos: cabelo, bigode, gola de pelo, ombreiras, braceletes, cinto, tabardo, capa em 3 partes, botas). Ossos locais: `cape`, `cape_mid`, `cape_lower`, `tabard_right/left`, `right/left_forearm`, `right/left_shin` | `SuitGeoModel` / `GeckoSuitRenderer` | **pronto** |
+| `powersnj:textures/suits/thragg/thragg_geo.png` | 256x256 | Textura do modelo (enviada pelo autor) | `SuitGeoModel#getTextureResource` | **pronto** |
+| `powersnj:animations/suits/thragg.animation.json` | Bedrock | 21 clipes `animation.thragg.*`: parado, andar, correr, agachar, defender, saltar, decolar, flutuar, voar, voo_rapido, pousar, soco_direito, soco_esquerdo, chute, combo, uppercut, investida, impacto_solo, onda_de_choque, recuar, vitoria | `SuitAnimationLibrary` | **pronto** |
+| `powersnj:animation_sets/thragg.json` | JSON | Estados, golpes (soco direito/esquerdo, chute após correr) e eventos (recuar, vitória) | `SuitAnimationLibrary` → `SuitAnimator` | **pronto** |
 | `powersnj:textures/item/thragg_helmet.png` | 16x16 | Ícone do item | `models/item/thragg_helmet.json` | placeholder |
 | `powersnj:textures/item/thragg_chestplate.png` | 16x16 | Ícone do item | `models/item/thragg_chestplate.json` | placeholder |
 | `powersnj:textures/item/thragg_leggings.png` | 16x16 | Ícone do item | `models/item/thragg_leggings.json` | placeholder |
@@ -35,9 +41,10 @@ Contrato entre o código e a produção de assets. Cada arquivo abaixo é procur
 |---|---|---|---|---|
 | `powersnj:textures/suits/venom/venom_layer_1.png` | 64x32 (layout de armadura vanilla) | Capacete, peitoral/braços e botas no modelo vanilla | `SuitArmorItem#getArmorTexture` → `SuitAssets.armorTexture` | placeholder |
 | `powersnj:textures/suits/venom/venom_layer_2.png` | 64x32 | Calças | `SuitArmorItem#getArmorTexture` | placeholder |
-| `powersnj:geo/suits/venom.geo.json` | Blockbench (GeckoLib) | Modelo animado do traje completo. Ossos obrigatórios: `armorHead`, `armorBody`, `armorRightArm`, `armorLeftArm`, `armorRightLeg`, `armorLeftLeg`, `armorRightBoot`, `armorLeftBoot` | `SuitGeoModel` / `GeckoSuitRenderer` (ativado por `SuitArmorClientExtensions`) | **faltando** (usa vanilla) |
-| `powersnj:textures/suits/venom/venom_geo.png` | conforme UV do modelo (recomendado 128x128 ou 256x256) | Textura do modelo GeckoLib | `SuitGeoModel#getTextureResource` | **faltando** |
-| `powersnj:animations/suits/venom.animation.json` | GeckoLib | Animações `animation.suit.idle` (loop), `animation.suit.fly`, `animation.suit.run` | `SuitGeoModel#getAnimationResource`, `SuitAnimations` | **faltando** (usa `animations/empty.animation.json`) |
+| `powersnj:geo/suits/venom.geo.json` | gerado por `tools/suit-assets/export_suit.py` | Modelo do traje no **rig de traje** (ver `tools/suit-assets/README.md`); o exportador cria os ossos `armorHead`...`armorLeftBoot` | `SuitGeoModel` / `GeckoSuitRenderer` (ativado por `SuitArmorClientExtensions`) | **faltando** (usa vanilla) |
+| `powersnj:textures/suits/venom/venom_geo.png` | conforme UV do modelo (recomendado 256x256) | Textura do modelo GeckoLib (embutida no `.bbmodel`, extraída pelo exportador) | `SuitGeoModel#getTextureResource` | **faltando** |
+| `powersnj:animations/suits/venom.animation.json` | Bedrock (gerado pelo exportador) | Clipes `animation.venom.*` do personagem (ver papéis em `tools/suit-assets/README.md`) | `SuitAnimationLibrary` (via `animation_sets/venom.json`) | **faltando** (poses vanilla) |
+| `powersnj:animation_sets/venom.json` | JSON | Liga os clipes aos estados (parado, andar, voar...), golpes e eventos | `SuitAnimationLibrary` → `SuitAnimator` | **faltando** |
 | `powersnj:textures/item/venom_helmet.png` | 16x16 | Ícone do item | `models/item/venom_helmet.json` | placeholder |
 | `powersnj:textures/item/venom_chestplate.png` | 16x16 | Ícone do item | `models/item/venom_chestplate.json` | placeholder |
 | `powersnj:textures/item/venom_leggings.png` | 16x16 | Ícone do item | `models/item/venom_leggings.json` | placeholder |
@@ -49,9 +56,10 @@ Contrato entre o código e a produção de assets. Cada arquivo abaixo é procur
 |---|---|---|---|---|
 | `powersnj:textures/suits/reverse_flash/reverse_flash_layer_1.png` | 64x32 (layout de armadura vanilla) | Capacete, peitoral/braços e botas no modelo vanilla | `SuitArmorItem#getArmorTexture` → `SuitAssets.armorTexture` | placeholder |
 | `powersnj:textures/suits/reverse_flash/reverse_flash_layer_2.png` | 64x32 | Calças | `SuitArmorItem#getArmorTexture` | placeholder |
-| `powersnj:geo/suits/reverse_flash.geo.json` | Blockbench (GeckoLib) | Modelo animado do traje completo. Ossos obrigatórios: `armorHead`, `armorBody`, `armorRightArm`, `armorLeftArm`, `armorRightLeg`, `armorLeftLeg`, `armorRightBoot`, `armorLeftBoot` | `SuitGeoModel` / `GeckoSuitRenderer` (ativado por `SuitArmorClientExtensions`) | **faltando** (usa vanilla) |
-| `powersnj:textures/suits/reverse_flash/reverse_flash_geo.png` | conforme UV do modelo (recomendado 128x128 ou 256x256) | Textura do modelo GeckoLib | `SuitGeoModel#getTextureResource` | **faltando** |
-| `powersnj:animations/suits/reverse_flash.animation.json` | GeckoLib | Animações `animation.suit.idle` (loop), `animation.suit.fly`, `animation.suit.run` | `SuitGeoModel#getAnimationResource`, `SuitAnimations` | **faltando** (usa `animations/empty.animation.json`) |
+| `powersnj:geo/suits/reverse_flash.geo.json` | gerado por `tools/suit-assets/export_suit.py` | Modelo do traje no **rig de traje** (ver `tools/suit-assets/README.md`); o exportador cria os ossos `armorHead`...`armorLeftBoot` | `SuitGeoModel` / `GeckoSuitRenderer` (ativado por `SuitArmorClientExtensions`) | **faltando** (usa vanilla) |
+| `powersnj:textures/suits/reverse_flash/reverse_flash_geo.png` | conforme UV do modelo (recomendado 256x256) | Textura do modelo GeckoLib (embutida no `.bbmodel`, extraída pelo exportador) | `SuitGeoModel#getTextureResource` | **faltando** |
+| `powersnj:animations/suits/reverse_flash.animation.json` | Bedrock (gerado pelo exportador) | Clipes `animation.reverse_flash.*` do personagem (ver papéis em `tools/suit-assets/README.md`) | `SuitAnimationLibrary` (via `animation_sets/reverse_flash.json`) | **faltando** (poses vanilla) |
+| `powersnj:animation_sets/reverse_flash.json` | JSON | Liga os clipes aos estados (parado, andar, voar...), golpes e eventos | `SuitAnimationLibrary` → `SuitAnimator` | **faltando** |
 | `powersnj:textures/item/reverse_flash_helmet.png` | 16x16 | Ícone do item | `models/item/reverse_flash_helmet.json` | placeholder |
 | `powersnj:textures/item/reverse_flash_chestplate.png` | 16x16 | Ícone do item | `models/item/reverse_flash_chestplate.json` | placeholder |
 | `powersnj:textures/item/reverse_flash_leggings.png` | 16x16 | Ícone do item | `models/item/reverse_flash_leggings.json` | placeholder |

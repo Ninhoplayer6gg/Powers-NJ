@@ -1,6 +1,5 @@
 package com.powersnj.suit;
 
-import com.powersnj.animation.SuitAnimations;
 import com.powersnj.compat.geckolib.SuitArmorClientExtensions;
 import com.powersnj.core.suit.SuitDefinition;
 import com.powersnj.core.suit.SuitDefinitions;
@@ -27,9 +26,10 @@ import java.util.function.Consumer;
  * One piece of a suit. Wearing all four pieces of the same {@link SuitKind} activates its Palladium
  * power set (Palladium suit set registered by {@code PalladiumSuitSets}).
  * <p>
- * Rendering: placeholder vanilla armor textures today ({@link SuitAssets#armorTexture}); as soon as
- * the GeckoLib model {@code geo/suits/<suit>.geo.json} is present in the resources the piece
- * switches to the animated GeckoLib renderer automatically.
+ * Rendering: vanilla armor textures ({@link SuitAssets#armorTexture}) until the GeckoLib model
+ * {@code geo/suits/<suit>.geo.json} is present in the resources, then the GeckoLib renderer. Suit
+ * animations are not GeckoLib controllers: the wearer's {@code SuitAnimator} drives both the player
+ * model and the suit bones (see {@code SuitGeoModel#setCustomAnimations}).
  */
 public class SuitArmorItem extends ArmorItem implements GeoItem {
 
@@ -57,7 +57,7 @@ public class SuitArmorItem extends ArmorItem implements GeoItem {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(SuitAnimations.suitController(this));
+        // posed by SuitGeoModel#setCustomAnimations from the wearer's suit animation
     }
 
     @Override

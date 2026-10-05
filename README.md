@@ -50,6 +50,7 @@ com.powersnj
 ├── PowersNJ.java          entrada do mod (só wiring)
 ├── core/                  DOMÍNIO PURO (sem Minecraft) — testado por JUnit
 │   ├── ability/           AbilityGate (validação servidor), CooldownTracker
+│   ├── animation/         clipes Bedrock, AnimationSet, SuitAnimator (máquina de estados + camadas), RootMotion
 │   ├── combat/            CombatRules (PvP/PvE/boss)
 │   ├── config/            PowersSettings (snapshot imutável da config)
 │   ├── data/              DataNode (persistência neutra ↔ NBT)
@@ -75,7 +76,8 @@ com.powersnj
 ├── network/               canal + pacotes (sync incremental, sem spam por frame)
 ├── block/ menu/ recipe/   Suit Forge, Suit Stand, receita powersnj:suit_fabrication
 ├── world/                 placement configurável, loot modifiers
-├── client/ hud/ render/ animation/   telas, HUD API, renderers, animações
+├── animation/             animações dos trajes: biblioteca (reload), animadores por jogador, pose no Palladium, eventos
+├── client/ hud/ render/   telas, HUD API, renderers
 ├── compat/palladium/      tipos de habilidade + condições + suit sets do Palladium
 ├── compat/geckolib/       modelos/renderers GeckoLib (ativam sozinhos quando os assets existirem)
 ├── command/               /powersnj (admin/debug)
@@ -101,9 +103,28 @@ com.powersnj
 `rapid_attack`, `phase`, `vortex`.
 
 Propriedades comuns: `energy_cost`, `energy_per_tick`, `cooldown_ticks` (escalado por `cooldownMultiplier`), `required_skill`,
-`min_level`, `xp_reward`.
+`min_level`, `xp_reward`, `animation` (clipe do traje tocado quando a habilidade ativa).
 
 Condições: `powersnj:skill_unlocked`, `powersnj:suit_level`, `powersnj:has_energy`, `powersnj:speedster_speed`, `powersnj:symbiote_stable`.
+
+## Animações dos trajes
+
+Cada traje pode ter um modelo GeckoLib e um conjunto de animações próprios, produzidos com o pipeline de
+`tools/suit-assets` (Blockbench → geometria de armadura + clipes Bedrock; veja o README de lá). O Thragg já vem completo:
+modelo, textura e 21 animações (`art/suits/thragg/thragg.bbmodel`).
+
+Com as 4 peças vestidas:
+
+- o poder esconde a skin do jogador (`palladium:hide_body_part`); peças avulsas só escondem a segunda camada da skin;
+- cada cliente anima todos os jogadores visíveis (`SuitAnimationClient` → `SuitAnimator`): parado, andar e correr (na fase
+  do balanço de pernas vanilla), agachar/defender, pulo, decolagem, voo parado, voo, voo rápido (com a inclinação do olhar e
+  a curva somadas) e pouso;
+- socos com a mão vazia alternam direita/esquerda (chute logo depois de correr); habilidades com `animation` e eventos do
+  servidor (`#heavy_hit`, `#level_up`, `#kill`) tocam para todos via `SuitAnimationPacket`;
+- a pose vai para o modelo do jogador pela pipeline de animações do Palladium (`SuitBodyAnimation`), então a armadura
+  GeckoLib acompanha; capa, tabardo, antebraços e canelas são posicionados em `SuitGeoModel#setCustomAnimations`.
+
+Braços usando itens (arco, escudo, comer, golpe com item), nadar, planar de elytra, montar e dormir ficam com o vanilla.
 
 ## Controles
 
@@ -148,12 +169,16 @@ Progressão/energia ficam no jogador e nunca se perdem.
 3. `data/powersnj/palladium/powers/<nome>.json` + `suit_set_powers/<nome>.json` (habilidades, reutilizando os tipos acima).
 4. `data/powersnj/recipes/suit_forge/<nome>.json` + blueprint (item).
 5. Traduções e assets conforme `ASSET_REQUIREMENTS.md`.
+6. Modelo/animações: `.bbmodel` no rig de traje (`tools/suit-assets/rig_humanoid.py` converte um humanoide comum),
+   `export_suit.py`, e `assets/powersnj/animation_sets/<nome>.json` ligando os clipes aos estados e eventos.
 
 Novas mecânicas: `MovementControllers.register(...)`, `PowerSystems.register(...)`, novos tipos em `compat/palladium/ability`.
 
 ## Testes
 
-- **JUnit** (`src/test/java/com/powersnj/core`): progressão, skill tree, energia, gate de habilidades, serialização (DataNode/NBT),
+- **JUnit** (`src/test/java/com/powersnj/core`): animações (amostragem de keyframes, parser Bedrock, máquina de estados,
+  composição do corpo inteiro, recursos do Thragg: sets, clipes, ossos e UVs do modelo), progressão, skill tree, energia,
+  gate de habilidades, serialização (DataNode/NBT),
   serialização de rede (byte-compatível com `FriendlyByteBuf`), classificação/planejamento de destruição, receita da Suit Forge,
   SpeedsterEngine, FlightController, phasing, combate, parser de definições, isolamento do core e consistência de recursos
   (traduções en/pt, ícones, modelos, sons, partículas, skills referenciadas, itens referenciados nos dados).
@@ -163,3 +188,4 @@ Novas mecânicas: `MovementControllers.register(...)`, `PowerSystems.register(..
 ## Assets
 
 Ver **[ASSET_REQUIREMENTS.md](ASSET_REQUIREMENTS.md)**. Placeholders: `python3 tools/placeholder-assets/generate_placeholders.py`.
+Trajes (modelo, textura, animações): **[tools/suit-assets/README.md](tools/suit-assets/README.md)**.

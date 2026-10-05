@@ -1,6 +1,7 @@
 package com.powersnj.client;
 
 import com.powersnj.PowersNJ;
+import com.powersnj.animation.SuitAnimationClient;
 import com.powersnj.core.ability.ActivationResult;
 import com.powersnj.core.net.CooldownSnapshot;
 import com.powersnj.core.net.DefinitionsPayload;
@@ -52,6 +53,10 @@ public final class ClientPacketHandler {
     public static void handleAbilityFeedback(String key, ActivationResult result) {
         Minecraft minecraft = Minecraft.getInstance();
         ClientPowerState.applyAbilityFeedback(key, result, minecraft.level == null ? 0L : minecraft.level.getGameTime());
+    }
+
+    public static void handleSuitAnimation(int entityId, String key) {
+        SuitAnimationClient.play(entityId, key);
     }
 
     public static void handleDefinitions(DefinitionsPayload payload) {

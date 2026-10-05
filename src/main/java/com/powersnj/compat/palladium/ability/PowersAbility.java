@@ -35,6 +35,8 @@ public abstract class PowersAbility extends Ability {
     public static final PalladiumProperty<String> REQUIRED_SKILL = new StringProperty("required_skill").configurable("Skill of the suit skill tree that must be unlocked (empty = none).");
     public static final PalladiumProperty<Integer> MIN_LEVEL = new IntegerProperty("min_level").configurable("Minimum suit level.");
     public static final PalladiumProperty<Float> XP_REWARD = new FloatProperty("xp_reward").configurable("Suit XP per successful activation. -1 uses the suit default.");
+    public static final PalladiumProperty<String> ANIMATION = new StringProperty("animation")
+            .configurable("Suit animation clip played on the wearer (seen by everyone) when the ability activates, e.g. animation.thragg.uppercut. Empty = none.");
 
     protected PowersAbility() {
         this.withProperty(ENERGY_COST, 0F);
@@ -43,6 +45,7 @@ public abstract class PowersAbility extends Ability {
         this.withProperty(REQUIRED_SKILL, "");
         this.withProperty(MIN_LEVEL, 1);
         this.withProperty(XP_REWARD, -1F);
+        this.withProperty(ANIMATION, "");
     }
 
     public AbilityCost cost(AbilityInstance instance, String key) {

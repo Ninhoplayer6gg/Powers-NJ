@@ -1,6 +1,7 @@
 package com.powersnj.client;
 
 import com.powersnj.PowersNJ;
+import com.powersnj.animation.SuitAnimationLibrary;
 import com.powersnj.client.particle.PowersParticle;
 import com.powersnj.client.screen.SuitForgeScreen;
 import com.powersnj.hud.PowersHudOverlay;
@@ -12,6 +13,7 @@ import com.powersnj.render.AssetAvailability;
 import com.powersnj.render.SuitStandRenderer;
 import com.powersnj.render.SymbioteFormLayer;
 import com.powersnj.render.TendrilRenderer;
+import com.powersnj.suit.SuitArmorItem;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -23,6 +25,8 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.threetag.palladium.entity.BodyPart;
 
 /**
  * Client registrations on the mod bus: screens, renderers, layers, particles, HUD overlay,
@@ -36,7 +40,14 @@ public final class ClientSetup {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> MenuScreens.register(ModMenus.SUIT_FORGE.get(), SuitForgeScreen::new));
+        event.enqueueWork(() -> {
+            MenuScreens.register(ModMenus.SUIT_FORGE.get(), SuitForgeScreen::new);
+            // A worn suit piece replaces the skin's second layer (hat, jacket, sleeves, pants) under it,
+            // so the suit never fights with it; the full set also hides the skin (hide_body_part ability).
+            ForgeRegistries.ITEMS.getValues().stream()
+                    .filter(item -> item instanceof SuitArmorItem && !BodyPart.HIDES_LAYER.contains(item))
+                    .forEach(BodyPart.HIDES_LAYER::add);
+        });
     }
 
     @SubscribeEvent
@@ -77,5 +88,6 @@ public final class ClientSetup {
     @SubscribeEvent
     public static void registerReloadListeners(RegisterClientReloadListenersEvent event) {
         event.registerReloadListener(AssetAvailability.INSTANCE);
+        event.registerReloadListener(SuitAnimationLibrary.INSTANCE);
     }
 }

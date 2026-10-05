@@ -19,7 +19,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
  */
 public final class PowersNetwork {
 
-    public static final String PROTOCOL = "1";
+    public static final String PROTOCOL = "2";
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(PowersNJ.id("main"), () -> PROTOCOL, PROTOCOL::equals, PROTOCOL::equals);
 
     private static boolean registered;
@@ -49,6 +49,8 @@ public final class PowersNetwork {
                 .encoder(DefinitionsPacket::encode).decoder(DefinitionsPacket::decode).consumerMainThread(DefinitionsPacket::handle).add();
         CHANNEL.messageBuilder(AbilityFeedbackPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(AbilityFeedbackPacket::encode).decoder(AbilityFeedbackPacket::decode).consumerMainThread(AbilityFeedbackPacket::handle).add();
+        CHANNEL.messageBuilder(SuitAnimationPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(SuitAnimationPacket::encode).decoder(SuitAnimationPacket::decode).consumerMainThread(SuitAnimationPacket::handle).add();
         CHANNEL.messageBuilder(UnlockSkillPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(UnlockSkillPacket::encode).decoder(UnlockSkillPacket::decode).consumerMainThread(UnlockSkillPacket::handle).add();
         PowersNJ.LOGGER.debug("Registered {} Powers NJ packets", id);

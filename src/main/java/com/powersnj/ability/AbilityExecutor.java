@@ -1,5 +1,6 @@
 package com.powersnj.ability;
 
+import com.powersnj.animation.SuitAnimations;
 import com.powersnj.compat.palladium.PalladiumBridge;
 import com.powersnj.compat.palladium.ability.PowersAbility;
 import com.powersnj.core.ability.AbilityCost;
@@ -61,6 +62,7 @@ public final class AbilityExecutor {
                     }
                     data.activeAbilities().add(key);
                     rewardUse(player, data, ability, instance);
+                    SuitAnimations.play(player, instance.getProperty(PowersAbility.ANIMATION));
                 }
             }
         }

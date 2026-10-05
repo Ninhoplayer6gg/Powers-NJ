@@ -64,6 +64,7 @@
       "hidden_in_bar": true,
       "energy_cost": 10,
       "cooldown_ticks": 30,
+      "animation": "animation.thragg.combo",
       "damage": 18,
       "knockback": 2.5,
       "reach": 5,
@@ -94,6 +95,7 @@
       "hidden_in_bar": true,
       "energy_cost": 35,
       "cooldown_ticks": 100,
+      "animation": "animation.thragg.impacto_solo",
       "radius": 6,
       "damage": 14,
       "knockback": 1.6,
@@ -130,6 +132,7 @@
       "hidden_in_bar": true,
       "energy_cost": 50,
       "cooldown_ticks": 160,
+      "animation": "animation.thragg.onda_de_choque",
       "radius": 14,
       "speed": 0.8,
       "damage": 9,
@@ -165,6 +168,7 @@
       "hidden_in_bar": true,
       "energy_cost": 40,
       "cooldown_ticks": 120,
+      "animation": "animation.thragg.investida",
       "duration": 12,
       "speed": 1.6,
       "damage": 12,
@@ -200,6 +204,7 @@
       "hidden_in_bar": true,
       "energy_cost": 60,
       "cooldown_ticks": 200,
+      "animation": "animation.thragg.uppercut",
       "damage": 34,
       "knockback": 4,
       "reach": 5,
@@ -433,6 +438,27 @@
         }
       },
       "icon": "powersnj:textures/abilities/thragg/regeneration.png",
+      "hidden_in_bar": true
+    },
+    "suit_body": {
+      "type": "palladium:hide_body_part",
+      "body_parts": [
+        "head",
+        "head_overlay",
+        "chest",
+        "chest_overlay",
+        "right_arm",
+        "right_arm_overlay",
+        "left_arm",
+        "left_arm_overlay",
+        "right_leg",
+        "right_leg_overlay",
+        "left_leg",
+        "left_leg_overlay",
+        "cape"
+      ],
+      "affects_first_person": false,
+      "hidden": true,
       "hidden_in_bar": true
     }
   }
