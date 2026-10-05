@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "FVF",
+    "VFV",
+    "FVF"
+  ],
+  "key": {
+    "F": {
+      "item": "powersnj:reinforced_fabric"
+    },
+    "V": {
+      "item": "powersnj:viltrumite_ingot"
+    }
+  },
+  "result": {
+    "item": "powersnj:reinforced_viltrumite_fabric",
+    "count": 4
+  }
+}

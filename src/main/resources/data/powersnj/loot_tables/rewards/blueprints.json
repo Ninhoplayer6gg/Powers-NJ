@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "powersnj:viltrumite_blueprint",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "powersnj:symbiote_blueprint",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "powersnj:speedster_blueprint",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "random_sequence": "powersnj:rewards/blueprints"
+}

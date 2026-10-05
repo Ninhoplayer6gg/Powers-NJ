@@ -1,0 +1,439 @@
+{
+  "name": {
+    "translate": "power.powersnj.thragg"
+  },
+  "icon": "powersnj:viltrumite_blueprint",
+  "primary_color": [
+    224,
+    176,
+    64
+  ],
+  "secondary_color": [
+    120,
+    20,
+    20
+  ],
+  "gui_display_type": "tree",
+  "abilities": {
+    "attack_wheel": {
+      "type": "palladium:ability_wheel",
+      "title": {
+        "translate": "ability.powersnj.attack_wheel"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.attack_wheel.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.attack_wheel.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/attack_wheel.png",
+      "list_index": 0,
+      "abilities": [
+        "heavy_punch",
+        "ground_slam",
+        "shockwave",
+        "charge",
+        "devastating_punch"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+    "heavy_punch": {
+      "type": "powersnj:heavy_punch",
+      "title": {
+        "translate": "ability.powersnj.heavy_punch"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.heavy_punch.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.heavy_punch.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/heavy_punch.png",
+      "hidden_in_bar": true,
+      "energy_cost": 10,
+      "cooldown_ticks": 30,
+      "damage": 18,
+      "knockback": 2.5,
+      "reach": 5,
+      "crater_radius": 1.2,
+      "destruction_power": "hard",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          }
+        ]
+      }
+    },
+    "ground_slam": {
+      "type": "powersnj:ground_slam",
+      "title": {
+        "translate": "ability.powersnj.ground_slam"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.ground_slam.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.ground_slam.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/ground_slam.png",
+      "hidden_in_bar": true,
+      "energy_cost": 35,
+      "cooldown_ticks": 100,
+      "radius": 6,
+      "damage": 14,
+      "knockback": 1.6,
+      "crater_radius": 2.5,
+      "destruction_power": "hard",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "ground_slam"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          }
+        ]
+      }
+    },
+    "shockwave": {
+      "type": "powersnj:shockwave",
+      "title": {
+        "translate": "ability.powersnj.shockwave"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.shockwave.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.shockwave.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/shockwave.png",
+      "hidden_in_bar": true,
+      "energy_cost": 50,
+      "cooldown_ticks": 160,
+      "radius": 14,
+      "speed": 0.8,
+      "damage": 9,
+      "knockback": 1.4,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "shockwave"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          }
+        ]
+      }
+    },
+    "charge": {
+      "type": "powersnj:charge",
+      "title": {
+        "translate": "ability.powersnj.charge"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.charge.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.charge.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/charge.png",
+      "hidden_in_bar": true,
+      "energy_cost": 40,
+      "cooldown_ticks": 120,
+      "duration": 12,
+      "speed": 1.6,
+      "damage": 12,
+      "destruction_power": "normal",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "charge"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          }
+        ]
+      }
+    },
+    "devastating_punch": {
+      "type": "powersnj:heavy_punch",
+      "title": {
+        "translate": "ability.powersnj.devastating_punch"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.devastating_punch.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.devastating_punch.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/devastating_punch.png",
+      "hidden_in_bar": true,
+      "energy_cost": 60,
+      "cooldown_ticks": 200,
+      "damage": 34,
+      "knockback": 4,
+      "reach": 5,
+      "crater_radius": 2.2,
+      "destruction_power": "extreme",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "obsidian_breaker"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          }
+        ]
+      }
+    },
+    "flight_boost": {
+      "type": "powersnj:flight_boost",
+      "title": {
+        "translate": "ability.powersnj.flight_boost"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.flight_boost.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.flight_boost.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/flight_boost.png",
+      "list_index": 1,
+      "energy_cost": 25,
+      "cooldown_ticks": 60,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "flight_boost"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+    "high_speed_flight": {
+      "type": "powersnj:high_speed_flight",
+      "title": {
+        "translate": "ability.powersnj.high_speed_flight"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.high_speed_flight.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.high_speed_flight.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/high_speed_flight.png",
+      "list_index": 2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "high_speed_flight"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:has_energy",
+            "amount": 5
+          }
+        ]
+      }
+    },
+    "super_strength": {
+      "type": "powersnj:scaled_attribute",
+      "title": {
+        "translate": "ability.powersnj.super_strength"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.super_strength.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.super_strength.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/super_strength.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount_at_level_1": 4,
+      "amount_at_max_level": 14,
+      "operation": 0,
+      "uuid": "05cf2e04-1170-5220-af9a-28d3dc767c87"
+    },
+    "durability": {
+      "type": "powersnj:scaled_attribute",
+      "title": {
+        "translate": "ability.powersnj.durability"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.durability.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.durability.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/durability.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount_at_level_1": 6,
+      "amount_at_max_level": 18,
+      "operation": 0,
+      "uuid": "717abe95-07f6-57fc-afe1-20f1ae6384c6"
+    },
+    "toughness": {
+      "type": "powersnj:scaled_attribute",
+      "title": {
+        "translate": "ability.powersnj.toughness"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.toughness.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.toughness.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/toughness.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount_at_level_1": 2,
+      "amount_at_max_level": 8,
+      "operation": 0,
+      "uuid": "0cc92929-4fc4-5905-a0f0-85e666c4cb55"
+    },
+    "knockback_resistance": {
+      "type": "palladium:attribute_modifier",
+      "title": {
+        "translate": "ability.powersnj.knockback_resistance"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.knockback_resistance.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.knockback_resistance.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/knockback_resistance.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.6,
+      "operation": 0,
+      "uuid": "f723a1a3-8ef0-5edb-87e4-69ebdd227486"
+    },
+    "fall_resistance": {
+      "type": "palladium:attribute_modifier",
+      "title": {
+        "translate": "ability.powersnj.fall_resistance"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.fall_resistance.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.fall_resistance.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/fall_resistance.png",
+      "hidden_in_bar": true,
+      "attribute": "palladium:fall_resistance",
+      "amount": 99,
+      "operation": 0,
+      "uuid": "9a620f4a-9b1b-5652-afd7-92fac7b15b92"
+    },
+    "grand_regent": {
+      "type": "powersnj:scaled_attribute",
+      "title": {
+        "translate": "ability.powersnj.grand_regent"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.grand_regent.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.grand_regent.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/grand_regent.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount_at_level_1": 4,
+      "amount_at_max_level": 10,
+      "operation": 0,
+      "uuid": "5d2d5c40-3dd9-50a4-b993-e58ed672e77c",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "grand_regent"
+          }
+        ]
+      }
+    },
+    "regeneration": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powersnj.regeneration"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.regeneration.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.regeneration.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/thragg/regeneration.png",
+      "hidden_in_bar": true
+    }
+  }
+}

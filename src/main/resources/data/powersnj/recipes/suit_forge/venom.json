@@ -1,0 +1,30 @@
+{
+  "type": "powersnj:suit_fabrication",
+  "blueprint": "powersnj:symbiote_blueprint",
+  "power_core": "powersnj:power_core",
+  "materials": [
+    {
+      "item": "powersnj:symbiotic_fiber",
+      "count": 10
+    },
+    {
+      "item": "powersnj:organic_compound",
+      "count": 6
+    },
+    {
+      "item": "powersnj:biomass",
+      "count": 8
+    },
+    {
+      "item": "powersnj:reinforced_fabric",
+      "count": 4
+    },
+    {
+      "item": "powersnj:advanced_circuit",
+      "count": 1
+    }
+  ],
+  "suit": "powersnj:venom",
+  "processing_time": 300,
+  "consume_blueprint": false
+}

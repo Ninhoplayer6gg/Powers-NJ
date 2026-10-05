@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,working=false": {
+      "model": "powersnj:block/suit_forge"
+    },
+    "facing=north,working=true": {
+      "model": "powersnj:block/suit_forge_working"
+    },
+    "facing=east,working=false": {
+      "model": "powersnj:block/suit_forge",
+      "y": 90
+    },
+    "facing=east,working=true": {
+      "model": "powersnj:block/suit_forge_working",
+      "y": 90
+    },
+    "facing=south,working=false": {
+      "model": "powersnj:block/suit_forge",
+      "y": 180
+    },
+    "facing=south,working=true": {
+      "model": "powersnj:block/suit_forge_working",
+      "y": 180
+    },
+    "facing=west,working=false": {
+      "model": "powersnj:block/suit_forge",
+      "y": 270
+    },
+    "facing=west,working=true": {
+      "model": "powersnj:block/suit_forge_working",
+      "y": 270
+    }
+  }
+}

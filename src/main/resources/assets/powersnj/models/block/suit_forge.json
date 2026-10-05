@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "powersnj:block/suit_forge_top",
+    "front": "powersnj:block/suit_forge_front",
+    "side": "powersnj:block/suit_forge_side"
+  }
+}

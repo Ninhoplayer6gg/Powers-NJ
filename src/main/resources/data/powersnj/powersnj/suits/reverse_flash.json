@@ -1,0 +1,60 @@
+{
+  "character": "Reverse-Flash",
+  "power_rating": 90,
+  "max_level": 20,
+  "xp_curve": { "base": 50, "exponent": 1.35 },
+  "palladium_power": "powersnj:reverse_flash",
+  "energy": {
+    "type": "powersnj:negative_speed_force",
+    "base_max": 180,
+    "max_per_level": 14,
+    "regen_per_tick": 0.5,
+    "regen_per_level": 0.04,
+    "regen_delay": 20
+  },
+  "abilities": ["super_speed", "speed_up", "speed_down", "speed_punch", "speed_dash", "rapid_attack", "vibration", "phase", "vortex"],
+  "passives": ["reflexes", "wall_running", "water_running", "accelerated_healing"],
+  "movement": {
+    "type": "powersnj:speedster",
+    "base_multiplier": 2.0,
+    "max_multiplier": 12.0,
+    "speed_levels": 5,
+    "acceleration": 0.12,
+    "deceleration": 0.45,
+    "turn_rate_at_max": 0.25,
+    "drain_at_max": 0.45,
+    "wall_run_min": 3.0,
+    "water_run_min": 2.5,
+    "collision_min": 4.0,
+    "collision_damage": 1.5,
+    "step_height_bonus": 1.0
+  },
+  "settings": {
+    "regen_amount": 1.0,
+    "regen_per_level": 0.06,
+    "regen_interval": 40,
+    "regen_energy_cost": 2,
+    "regen_running_multiplier": 3.0,
+    "reaction_dodge_chance": 0.6
+  },
+  "systems": ["powersnj:regeneration", "powersnj:reactions"],
+  "hud_profile": "powersnj:speedster",
+  "xp": {
+    "kill_mob": 6,
+    "kill_player": 25,
+    "kill_boss": 180,
+    "ability_use": 1,
+    "damage_dealt_factor": 0.15,
+    "travel_per_100_blocks": 1.5
+  },
+  "skill_tree": [
+    { "id": "speed_punch", "required_level": 1, "cost": 1, "x": 0, "y": 0, "icon": "powersnj:textures/abilities/reverse_flash/speed_punch.png" },
+    { "id": "speed_dash", "required_level": 2, "cost": 1, "parents": ["speed_punch"], "x": -1, "y": 1, "icon": "powersnj:textures/abilities/reverse_flash/speed_dash.png" },
+    { "id": "wall_running", "required_level": 3, "cost": 1, "parents": ["speed_punch"], "x": 1, "y": 1, "icon": "powersnj:textures/abilities/reverse_flash/wall_running.png" },
+    { "id": "rapid_attack", "required_level": 5, "cost": 2, "parents": ["speed_dash"], "x": -1, "y": 2, "icon": "powersnj:textures/abilities/reverse_flash/rapid_attack.png" },
+    { "id": "water_running", "required_level": 6, "cost": 1, "parents": ["wall_running"], "x": 1, "y": 2, "icon": "powersnj:textures/abilities/reverse_flash/water_running.png" },
+    { "id": "phasing", "required_level": 9, "cost": 2, "parents": ["water_running"], "requirement": { "stat": "distance", "min": 5000 }, "x": 1, "y": 3, "icon": "powersnj:textures/abilities/reverse_flash/phase.png" },
+    { "id": "vortex", "required_level": 12, "cost": 2, "parents": ["rapid_attack"], "x": -1, "y": 3, "icon": "powersnj:textures/abilities/reverse_flash/vortex.png" },
+    { "id": "negative_speed_force", "required_level": 20, "cost": 3, "parents": ["phasing", "vortex"], "x": 0, "y": 4, "icon": "powersnj:textures/abilities/reverse_flash/negative_speed_force.png" }
+  ]
+}

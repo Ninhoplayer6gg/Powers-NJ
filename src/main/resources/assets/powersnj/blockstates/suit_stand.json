@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "powersnj:block/suit_stand"
+    },
+    "facing=east": {
+      "model": "powersnj:block/suit_stand",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "powersnj:block/suit_stand",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "powersnj:block/suit_stand",
+      "y": 270
+    }
+  }
+}

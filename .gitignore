@@ -1,0 +1,28 @@
+# Gradle / build
+.gradle/
+build/
+out/
+bin/
+classes/
+run/
+run-data/
+runs/
+logs/
+mcmodsrepo/
+tools/core-verification/.gradle/
+tools/core-verification/build/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+*.launch
+
+# OS
+.DS_Store
+Thumbs.db

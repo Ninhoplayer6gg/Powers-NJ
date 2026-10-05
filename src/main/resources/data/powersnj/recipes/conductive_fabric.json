@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "CFC",
+    "SCS"
+  ],
+  "key": {
+    "S": {
+      "item": "powersnj:speed_crystal"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "F": {
+      "item": "powersnj:reinforced_fabric"
+    }
+  },
+  "result": {
+    "item": "powersnj:conductive_fabric",
+    "count": 4
+  }
+}

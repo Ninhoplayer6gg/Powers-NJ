@@ -1,0 +1,529 @@
+{
+  "name": {
+    "translate": "power.powersnj.venom"
+  },
+  "icon": "powersnj:symbiote_blueprint",
+  "primary_color": [
+    40,
+    40,
+    60
+  ],
+  "secondary_color": [
+    230,
+    230,
+    240
+  ],
+  "gui_display_type": "tree",
+  "abilities": {
+    "tendril_wheel": {
+      "type": "palladium:ability_wheel",
+      "title": {
+        "translate": "ability.powersnj.tendril_wheel"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.tendril_wheel.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.tendril_wheel.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/tendril_wheel.png",
+      "list_index": 0,
+      "abilities": [
+        "tendril_grab",
+        "tendril_pull"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:symbiote_stable"
+          }
+        ]
+      }
+    },
+    "tendril_grab": {
+      "type": "powersnj:tendril",
+      "title": {
+        "translate": "ability.powersnj.tendril_grab"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.tendril_grab.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.tendril_grab.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/tendril_grab.png",
+      "hidden_in_bar": true,
+      "energy_cost": 10,
+      "cooldown_ticks": 40,
+      "mode": "grab",
+      "range": 20,
+      "damage": 4,
+      "hold_ticks": 60,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "tendril_grab"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          }
+        ]
+      }
+    },
+    "tendril_pull": {
+      "type": "powersnj:tendril",
+      "title": {
+        "translate": "ability.powersnj.tendril_pull"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.tendril_pull.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.tendril_pull.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/tendril_pull.png",
+      "hidden_in_bar": true,
+      "energy_cost": 15,
+      "cooldown_ticks": 60,
+      "mode": "pull",
+      "range": 24,
+      "damage": 3,
+      "hold_ticks": 40,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "tendril_pull"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          }
+        ]
+      }
+    },
+    "tendril_swing": {
+      "type": "powersnj:tendril",
+      "title": {
+        "translate": "ability.powersnj.tendril_swing"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.tendril_swing.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.tendril_swing.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/tendril_swing.png",
+      "list_index": 1,
+      "energy_cost": 8,
+      "cooldown_ticks": 10,
+      "mode": "swing",
+      "range": 32,
+      "damage": 0,
+      "hold_ticks": 300,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "tendril_swing"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:symbiote_stable"
+          }
+        ]
+      }
+    },
+    "wall_crawl": {
+      "type": "powersnj:trait",
+      "title": {
+        "translate": "ability.powersnj.wall_crawl"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.wall_crawl.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.wall_crawl.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/wall_crawl.png",
+      "list_index": 2,
+      "trait": "wall_crawling",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "wall_crawl"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:symbiote_stable"
+          }
+        ]
+      }
+    },
+    "symbiote_shield": {
+      "type": "powersnj:symbiote_shield",
+      "title": {
+        "translate": "ability.powersnj.symbiote_shield"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.symbiote_shield.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.symbiote_shield.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/symbiote_shield.png",
+      "list_index": 3,
+      "energy_per_tick": 0.2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "symbiote_shield"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:has_energy",
+            "amount": 5
+          },
+          {
+            "type": "powersnj:symbiote_stable"
+          }
+        ]
+      }
+    },
+    "claws": {
+      "type": "powersnj:symbiote_form",
+      "title": {
+        "translate": "ability.powersnj.claws"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.claws.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.claws.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/claws.png",
+      "list_index": 4,
+      "form": "claws",
+      "attack_damage_bonus": 3,
+      "reach_bonus": 0,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "claws"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:symbiote_stable"
+          }
+        ]
+      }
+    },
+    "blade_arm": {
+      "type": "powersnj:symbiote_form",
+      "title": {
+        "translate": "ability.powersnj.blade_arm"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.blade_arm.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.blade_arm.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/blade_arm.png",
+      "list_index": 5,
+      "form": "blade_arm",
+      "attack_damage_bonus": 7,
+      "reach_bonus": 1,
+      "energy_per_tick": 0.05,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "blade_arm"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:symbiote_stable"
+          }
+        ]
+      }
+    },
+    "camouflage": {
+      "type": "powersnj:camouflage",
+      "title": {
+        "translate": "ability.powersnj.camouflage"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.camouflage.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.camouflage.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/camouflage.png",
+      "list_index": 6,
+      "energy_per_tick": 0.25,
+      "radius": 16,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "camouflage"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:has_energy",
+            "amount": 2
+          },
+          {
+            "type": "powersnj:symbiote_stable"
+          }
+        ]
+      }
+    },
+    "enhanced_strength": {
+      "type": "powersnj:scaled_attribute",
+      "title": {
+        "translate": "ability.powersnj.enhanced_strength"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.enhanced_strength.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.enhanced_strength.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/enhanced_strength.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount_at_level_1": 3,
+      "amount_at_max_level": 9,
+      "operation": 0,
+      "uuid": "9c5c5e87-697b-520f-b968-d68e7092138c"
+    },
+    "durability": {
+      "type": "powersnj:scaled_attribute",
+      "title": {
+        "translate": "ability.powersnj.durability"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.durability.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.durability.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/durability.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount_at_level_1": 4,
+      "amount_at_max_level": 12,
+      "operation": 0,
+      "uuid": "3659ad0e-f68b-559b-b673-02686156accf"
+    },
+    "enhanced_movement": {
+      "type": "palladium:attribute_modifier",
+      "title": {
+        "translate": "ability.powersnj.enhanced_movement"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.enhanced_movement.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.enhanced_movement.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/enhanced_movement.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.25,
+      "operation": 1,
+      "uuid": "c736d655-e891-5880-a913-f0dc0008aa0f"
+    },
+    "high_jump": {
+      "type": "palladium:attribute_modifier",
+      "title": {
+        "translate": "ability.powersnj.high_jump"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.high_jump.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.high_jump.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/high_jump.png",
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": 1.0,
+      "operation": 0,
+      "uuid": "e1fe02ee-079c-5315-b82e-a053cbfd32a4"
+    },
+    "fall_resistance": {
+      "type": "palladium:attribute_modifier",
+      "title": {
+        "translate": "ability.powersnj.fall_resistance"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.fall_resistance.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.fall_resistance.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/fall_resistance.png",
+      "hidden_in_bar": true,
+      "attribute": "palladium:fall_resistance",
+      "amount": 3,
+      "operation": 0,
+      "uuid": "a8148065-5446-515a-a178-d4f903907503"
+    },
+    "we_are_venom": {
+      "type": "powersnj:scaled_attribute",
+      "title": {
+        "translate": "ability.powersnj.we_are_venom"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.we_are_venom.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.we_are_venom.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/we_are_venom.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount_at_level_1": 4,
+      "amount_at_max_level": 12,
+      "operation": 0,
+      "uuid": "98b18f2b-d33e-5ea0-a1c5-627e8ef5b754",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "we_are_venom"
+          }
+        ]
+      }
+    },
+    "regeneration": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powersnj.regeneration"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.regeneration.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.regeneration.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/regeneration.png",
+      "hidden_in_bar": true
+    },
+    "heat_weakness": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powersnj.heat_weakness"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.heat_weakness.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.heat_weakness.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/heat_weakness.png",
+      "hidden_in_bar": true
+    },
+    "sonic_weakness": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powersnj.sonic_weakness"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.sonic_weakness.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.sonic_weakness.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/venom/sonic_weakness.png",
+      "hidden_in_bar": true
+    }
+  }
+}

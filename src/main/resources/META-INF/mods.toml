@@ -1,0 +1,40 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+description='''${mod_description}'''
+
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+# Power core: abilities, ability bar/wheel, key handling, suit sets.
+[[dependencies.${mod_id}]]
+    modId="palladium"
+    mandatory=true
+    versionRange="${palladium_version_range}"
+    ordering="AFTER"
+    side="BOTH"
+
+# Animation engine for suit and tendril models.
+[[dependencies.${mod_id}]]
+    modId="geckolib"
+    mandatory=true
+    versionRange="${geckolib_version_range}"
+    ordering="AFTER"
+    side="BOTH"

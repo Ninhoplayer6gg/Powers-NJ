@@ -1,0 +1,150 @@
+{
+  "character": "Thragg",
+  "power_rating": 98,
+  "max_level": 20,
+  "xp_curve": {
+    "base": 50,
+    "exponent": 1.35
+  },
+  "palladium_power": "powersnj:thragg",
+  "energy": {
+    "type": "powersnj:viltrumite_stamina",
+    "base_max": 200,
+    "max_per_level": 15,
+    "regen_per_tick": 0.6,
+    "regen_per_level": 0.04,
+    "regen_delay": 30
+  },
+  "abilities": [
+    "heavy_punch",
+    "ground_slam",
+    "flight_boost",
+    "shockwave",
+    "charge",
+    "high_speed_flight",
+    "devastating_punch"
+  ],
+  "passives": [
+    "super_strength",
+    "durability",
+    "toughness",
+    "fall_resistance",
+    "knockback_resistance",
+    "regeneration"
+  ],
+  "movement": {
+    "type": "powersnj:flight",
+    "cruise_speed": 0.9,
+    "boost_speed": 2.2,
+    "high_speed": 3.2,
+    "acceleration": 0.08,
+    "deceleration": 0.15,
+    "boost_duration": 40,
+    "high_speed_drain": 0.7,
+    "impact_min_speed": 1.2,
+    "impact_damage": 6
+  },
+  "settings": {
+    "regen_amount": 1.0,
+    "regen_per_level": 0.08,
+    "regen_interval": 30,
+    "regen_energy_cost": 2
+  },
+  "systems": [
+    "powersnj:regeneration"
+  ],
+  "hud_profile": "powersnj:viltrumite",
+  "xp": {
+    "kill_mob": 6,
+    "kill_player": 25,
+    "kill_boss": 200,
+    "ability_use": 1,
+    "damage_dealt_factor": 0.12,
+    "travel_per_100_blocks": 3
+  },
+  "skill_tree": [
+    {
+      "id": "ground_slam",
+      "required_level": 1,
+      "cost": 1,
+      "x": 0,
+      "y": 0,
+      "icon": "powersnj:textures/abilities/thragg/ground_slam.png"
+    },
+    {
+      "id": "flight_boost",
+      "required_level": 2,
+      "cost": 1,
+      "parents": [
+        "ground_slam"
+      ],
+      "x": 1,
+      "y": 1,
+      "icon": "powersnj:textures/abilities/thragg/flight_boost.png"
+    },
+    {
+      "id": "shockwave",
+      "required_level": 5,
+      "cost": 2,
+      "parents": [
+        "ground_slam"
+      ],
+      "x": -1,
+      "y": 1,
+      "icon": "powersnj:textures/abilities/thragg/shockwave.png"
+    },
+    {
+      "id": "charge",
+      "required_level": 8,
+      "cost": 2,
+      "parents": [
+        "flight_boost"
+      ],
+      "x": 1,
+      "y": 2,
+      "icon": "powersnj:textures/abilities/thragg/charge.png"
+    },
+    {
+      "id": "high_speed_flight",
+      "required_level": 12,
+      "cost": 2,
+      "parents": [
+        "charge"
+      ],
+      "requirement": {
+        "stat": "distance",
+        "min": 3000
+      },
+      "x": 1,
+      "y": 3,
+      "icon": "powersnj:textures/abilities/thragg/high_speed_flight.png"
+    },
+    {
+      "id": "obsidian_breaker",
+      "required_level": 15,
+      "cost": 3,
+      "parents": [
+        "shockwave"
+      ],
+      "requirement": {
+        "stat": "kills",
+        "min": 75
+      },
+      "x": -1,
+      "y": 3,
+      "icon": "powersnj:textures/abilities/thragg/devastating_punch.png"
+    },
+    {
+      "id": "grand_regent",
+      "required_level": 20,
+      "cost": 3,
+      "parents": [
+        "obsidian_breaker",
+        "high_speed_flight"
+      ],
+      "x": 0,
+      "y": 4,
+      "icon": "powersnj:textures/abilities/thragg/grand_regent.png"
+    }
+  ]
+}

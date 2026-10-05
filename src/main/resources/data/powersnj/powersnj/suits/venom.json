@@ -1,0 +1,172 @@
+{
+  "character": "Venom",
+  "power_rating": 85,
+  "max_level": 20,
+  "xp_curve": {
+    "base": 50,
+    "exponent": 1.35
+  },
+  "palladium_power": "powersnj:venom",
+  "energy": {
+    "type": "powersnj:biomass",
+    "base_max": 150,
+    "max_per_level": 10,
+    "regen_per_tick": 0.25,
+    "regen_per_level": 0.02,
+    "regen_delay": 40
+  },
+  "abilities": [
+    "tendril_grab",
+    "tendril_pull",
+    "tendril_swing",
+    "wall_crawl",
+    "symbiote_shield",
+    "claws",
+    "blade_arm",
+    "camouflage"
+  ],
+  "passives": [
+    "enhanced_strength",
+    "enhanced_movement",
+    "high_jump",
+    "fall_resistance",
+    "regeneration",
+    "heat_weakness",
+    "sonic_weakness"
+  ],
+  "movement": {
+    "type": "powersnj:symbiote"
+  },
+  "settings": {
+    "regen_amount": 1.0,
+    "regen_per_level": 0.05,
+    "regen_interval": 40,
+    "regen_energy_cost": 3,
+    "heat_damage_multiplier": 1.75,
+    "sonic_damage_multiplier": 2.0,
+    "heat_destabilize_ticks": 60,
+    "sonic_destabilize_ticks": 100,
+    "weakness_biomass_drain": 12,
+    "biomass_per_kill": 12,
+    "biomass_per_food_point": 2.5
+  },
+  "systems": [
+    "powersnj:regeneration",
+    "powersnj:venom_weaknesses",
+    "powersnj:biomass_feeding"
+  ],
+  "hud_profile": "powersnj:symbiote",
+  "xp": {
+    "kill_mob": 7,
+    "kill_player": 25,
+    "kill_boss": 180,
+    "ability_use": 1,
+    "damage_dealt_factor": 0.15,
+    "travel_per_100_blocks": 4
+  },
+  "skill_tree": [
+    {
+      "id": "tendril_grab",
+      "required_level": 1,
+      "cost": 1,
+      "x": 0,
+      "y": 0,
+      "icon": "powersnj:textures/abilities/venom/tendril_grab.png"
+    },
+    {
+      "id": "wall_crawl",
+      "required_level": 2,
+      "cost": 1,
+      "parents": [
+        "tendril_grab"
+      ],
+      "x": -1,
+      "y": 1,
+      "icon": "powersnj:textures/abilities/venom/wall_crawl.png"
+    },
+    {
+      "id": "tendril_pull",
+      "required_level": 3,
+      "cost": 1,
+      "parents": [
+        "tendril_grab"
+      ],
+      "x": 1,
+      "y": 1,
+      "icon": "powersnj:textures/abilities/venom/tendril_pull.png"
+    },
+    {
+      "id": "claws",
+      "required_level": 4,
+      "cost": 1,
+      "parents": [
+        "wall_crawl"
+      ],
+      "x": -2,
+      "y": 2,
+      "icon": "powersnj:textures/abilities/venom/claws.png"
+    },
+    {
+      "id": "tendril_swing",
+      "required_level": 6,
+      "cost": 2,
+      "parents": [
+        "tendril_pull",
+        "wall_crawl"
+      ],
+      "x": 0,
+      "y": 2,
+      "icon": "powersnj:textures/abilities/venom/tendril_swing.png"
+    },
+    {
+      "id": "symbiote_shield",
+      "required_level": 8,
+      "cost": 2,
+      "parents": [
+        "tendril_pull"
+      ],
+      "x": 2,
+      "y": 2,
+      "icon": "powersnj:textures/abilities/venom/symbiote_shield.png"
+    },
+    {
+      "id": "blade_arm",
+      "required_level": 11,
+      "cost": 2,
+      "parents": [
+        "claws"
+      ],
+      "requirement": {
+        "stat": "kills",
+        "min": 50
+      },
+      "x": -2,
+      "y": 3,
+      "icon": "powersnj:textures/abilities/venom/blade_arm.png"
+    },
+    {
+      "id": "camouflage",
+      "required_level": 14,
+      "cost": 2,
+      "parents": [
+        "tendril_swing"
+      ],
+      "x": 0,
+      "y": 3,
+      "icon": "powersnj:textures/abilities/venom/camouflage.png"
+    },
+    {
+      "id": "we_are_venom",
+      "required_level": 20,
+      "cost": 3,
+      "parents": [
+        "blade_arm",
+        "camouflage",
+        "symbiote_shield"
+      ],
+      "x": 0,
+      "y": 4,
+      "icon": "powersnj:textures/abilities/venom/we_are_venom.png"
+    }
+  ]
+}

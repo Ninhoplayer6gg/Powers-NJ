@@ -1,0 +1,552 @@
+{
+  "name": {
+    "translate": "power.powersnj.reverse_flash"
+  },
+  "icon": "powersnj:speedster_blueprint",
+  "primary_color": [
+    220,
+    30,
+    30
+  ],
+  "secondary_color": [
+    250,
+    220,
+    40
+  ],
+  "gui_display_type": "tree",
+  "abilities": {
+    "super_speed": {
+      "type": "powersnj:super_speed",
+      "title": {
+        "translate": "ability.powersnj.super_speed"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.super_speed.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.super_speed.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/super_speed.png",
+      "list_index": 0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:has_energy",
+            "amount": 5
+          }
+        ]
+      }
+    },
+    "speed_up": {
+      "type": "powersnj:speed_level",
+      "title": {
+        "translate": "ability.powersnj.speed_up"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.speed_up.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.speed_up.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/speed_up.png",
+      "hidden_in_bar": true,
+      "delta": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "scroll_up",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": false
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "super_speed"
+          }
+        ]
+      }
+    },
+    "speed_down": {
+      "type": "powersnj:speed_level",
+      "title": {
+        "translate": "ability.powersnj.speed_down"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.speed_down.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.speed_down.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/speed_down.png",
+      "hidden_in_bar": true,
+      "delta": -1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "scroll_down",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": false
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "super_speed"
+          }
+        ]
+      }
+    },
+    "no_hotbar_scroll": {
+      "type": "palladium:disable_hotbar_scroll",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "super_speed"
+          }
+        ]
+      }
+    },
+    "speed_wheel": {
+      "type": "palladium:ability_wheel",
+      "title": {
+        "translate": "ability.powersnj.speed_wheel"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.speed_wheel.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.speed_wheel.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/speed_wheel.png",
+      "list_index": 1,
+      "abilities": [
+        "speed_punch",
+        "speed_dash",
+        "phase"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+    "speed_punch": {
+      "type": "powersnj:speed_punch",
+      "title": {
+        "translate": "ability.powersnj.speed_punch"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.speed_punch.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.speed_punch.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/speed_punch.png",
+      "hidden_in_bar": true,
+      "energy_cost": 8,
+      "cooldown_ticks": 20,
+      "damage": 6,
+      "damage_per_speed": 1.5,
+      "reach": 4.5,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "speed_punch"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          }
+        ]
+      }
+    },
+    "speed_dash": {
+      "type": "powersnj:speed_dash",
+      "title": {
+        "translate": "ability.powersnj.speed_dash"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.speed_dash.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.speed_dash.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/speed_dash.png",
+      "hidden_in_bar": true,
+      "energy_cost": 15,
+      "cooldown_ticks": 40,
+      "strength": 2.5,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "speed_dash"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          }
+        ]
+      }
+    },
+    "phase": {
+      "type": "powersnj:phase",
+      "title": {
+        "translate": "ability.powersnj.phase"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.phase.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.phase.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/phase.png",
+      "hidden_in_bar": true,
+      "energy_cost": 35,
+      "cooldown_ticks": 80,
+      "distance": 6,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "phasing"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:ability_wheel"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "vibration"
+          }
+        ]
+      }
+    },
+    "rapid_attack": {
+      "type": "powersnj:rapid_attack",
+      "title": {
+        "translate": "ability.powersnj.rapid_attack"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.rapid_attack.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.rapid_attack.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/rapid_attack.png",
+      "list_index": 2,
+      "energy_per_tick": 0.4,
+      "damage": 2,
+      "interval": 2,
+      "reach": 4,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "rapid_attack"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:has_energy",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    "vibration": {
+      "type": "palladium:vibrate",
+      "title": {
+        "translate": "ability.powersnj.vibration"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.vibration.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.vibration.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/vibration.png",
+      "list_index": 3,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "phasing"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:has_energy",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    "vibration_drain": {
+      "type": "powersnj:trait",
+      "title": {
+        "translate": "ability.powersnj.vibration_drain"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.vibration_drain.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.vibration_drain.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/vibration_drain.png",
+      "hidden_in_bar": true,
+      "trait": "vibrating",
+      "energy_per_tick": 0.2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "vibration"
+          }
+        ]
+      }
+    },
+    "vortex": {
+      "type": "powersnj:vortex",
+      "title": {
+        "translate": "ability.powersnj.vortex"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.vortex.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.vortex.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/vortex.png",
+      "list_index": 4,
+      "energy_per_tick": 0.8,
+      "radius": 6,
+      "strength": 0.6,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "vortex"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "powersnj:has_energy",
+            "amount": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "super_speed"
+          }
+        ]
+      }
+    },
+    "wall_running": {
+      "type": "powersnj:trait",
+      "title": {
+        "translate": "ability.powersnj.wall_running"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.wall_running.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.wall_running.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/wall_running.png",
+      "hidden_in_bar": true,
+      "trait": "wall_running",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "wall_running"
+          }
+        ]
+      }
+    },
+    "water_running": {
+      "type": "powersnj:trait",
+      "title": {
+        "translate": "ability.powersnj.water_running"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.water_running.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.water_running.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/water_running.png",
+      "hidden_in_bar": true,
+      "trait": "water_running",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "water_running"
+          }
+        ]
+      }
+    },
+    "reflexes": {
+      "type": "palladium:attribute_modifier",
+      "title": {
+        "translate": "ability.powersnj.reflexes"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.reflexes.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.reflexes.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/reflexes.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 1.5,
+      "operation": 0,
+      "uuid": "efaff252-5dd1-595d-a1e2-87271a9b5e0d"
+    },
+    "durability": {
+      "type": "powersnj:scaled_attribute",
+      "title": {
+        "translate": "ability.powersnj.durability"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.durability.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.durability.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/durability.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount_at_level_1": 2,
+      "amount_at_max_level": 8,
+      "operation": 0,
+      "uuid": "f156625d-1ed5-50fb-8979-a4884dbea223"
+    },
+    "fall_resistance": {
+      "type": "palladium:attribute_modifier",
+      "title": {
+        "translate": "ability.powersnj.fall_resistance"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.fall_resistance.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.fall_resistance.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/fall_resistance.png",
+      "hidden_in_bar": true,
+      "attribute": "palladium:fall_resistance",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "a7bf13eb-31d2-5c3c-a0ae-86f274718f20"
+    },
+    "negative_speed_force": {
+      "type": "powersnj:scaled_attribute",
+      "title": {
+        "translate": "ability.powersnj.negative_speed_force"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.negative_speed_force.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.negative_speed_force.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/negative_speed_force.png",
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount_at_level_1": 2,
+      "amount_at_max_level": 6,
+      "operation": 0,
+      "uuid": "0ad659aa-eecf-52ee-841d-ec5a59b3fadf",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "powersnj:skill_unlocked",
+            "skill": "negative_speed_force"
+          }
+        ]
+      }
+    },
+    "accelerated_healing": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powersnj.accelerated_healing"
+      },
+      "description": {
+        "locked": {
+          "translate": "ability.powersnj.accelerated_healing.locked"
+        },
+        "unlocked": {
+          "translate": "ability.powersnj.accelerated_healing.desc"
+        }
+      },
+      "icon": "powersnj:textures/abilities/reverse_flash/accelerated_healing.png",
+      "hidden_in_bar": true
+    }
+  }
+}

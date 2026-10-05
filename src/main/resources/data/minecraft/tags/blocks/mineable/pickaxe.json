@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "powersnj:viltrumite_ore",
+    "powersnj:deepslate_viltrumite_ore",
+    "powersnj:speed_crystal_ore",
+    "powersnj:deepslate_speed_crystal_ore",
+    "powersnj:viltrumite_block",
+    "powersnj:suit_forge",
+    "powersnj:suit_stand"
+  ]
+}

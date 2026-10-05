@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "powersnj:deepslate_viltrumite_ore"
+  },
+  "result": "powersnj:viltrumite_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}
